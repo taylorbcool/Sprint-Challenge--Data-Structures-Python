@@ -8,7 +8,7 @@ class RingBuffer:
         self.storage = DoublyLinkedList()
 
     def append(self, item):
-        if self.storage.len() is self.capacity:
+        if len(self.storage) is self.capacity:
             self.storage.remove_from_tail()
         self.storage.add_to_head(item)
 
@@ -17,7 +17,7 @@ class RingBuffer:
         list_buffer_contents = []
 
         # TODO: Your code here
-        
+
 
         return list_buffer_contents
 
