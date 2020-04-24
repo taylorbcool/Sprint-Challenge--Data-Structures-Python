@@ -47,4 +47,27 @@ class LinkedList:
 
     def reverse_list(self, node, prev):
         # You must use recursion for this solution
-        pass
+        # NON-RECURSIVE SOLUTION
+        # now make this recursive...
+        # def revList(sll):
+        #     current = node
+        #     prev = None
+        #     while current is not None:
+        #         next = current.next
+        #         current.next = prev
+        #         prev = current
+        #         current = next
+        #     return
+
+        # base case, node will be none if the list has been reversed
+        if node is None:
+            return
+        # set the current last/tail node in list to head of reversed list
+        # can't just use tail because it's singly linked
+        elif node.next_node is None:
+            self.head = node
+        # move back step by step and set next to prev, effectively flipping the links around
+        # recursively setting next node to current node and current node to prev node
+        # this works because of what the params are
+        self.reverse_list(node.next_node, node)
+        node.next_node = prev
